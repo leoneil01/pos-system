@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "8nqjZddU8oGPIHEsLWK6i148c7w8pIAZBVO9tUdI218ABnBu0YorknN4h/I8sIgaMdqdrgR8LuuRblljOsZotQ==",
+  "dgSpecHash": "IZlfLguMPgVl7nIlhO2msoAp9Nlsz/8yTwbtfmj3cqAZKAmePKCqZ7hXkX7Qg8ltJ46yzSCNuRnSUdD8RS9I7A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\admin\\Desktop\\POS\\POS System Project\\POS System Project\\POS System Project.csproj",
+  "projectFilePath": "C:\\Users\\admin\\Desktop\\POS\\pos-system\\POS System Project\\POS System Project.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

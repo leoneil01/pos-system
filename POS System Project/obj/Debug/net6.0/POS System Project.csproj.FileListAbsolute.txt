@@ -1,0 +1,15 @@
+C:\Users\admin\Desktop\POS\pos-system\POS System Project\bin\Debug\net6.0\POS System Project.exe
+C:\Users\admin\Desktop\POS\pos-system\POS System Project\bin\Debug\net6.0\POS System Project.deps.json
+C:\Users\admin\Desktop\POS\pos-system\POS System Project\bin\Debug\net6.0\POS System Project.runtimeconfig.json
+C:\Users\admin\Desktop\POS\pos-system\POS System Project\bin\Debug\net6.0\POS System Project.dll
+C:\Users\admin\Desktop\POS\pos-system\POS System Project\bin\Debug\net6.0\POS System Project.pdb
+C:\Users\admin\Desktop\POS\pos-system\POS System Project\obj\Debug\net6.0\POS System Project.csproj.AssemblyReference.cache
+C:\Users\admin\Desktop\POS\pos-system\POS System Project\obj\Debug\net6.0\POS System Project.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\admin\Desktop\POS\pos-system\POS System Project\obj\Debug\net6.0\POS System Project.AssemblyInfoInputs.cache
+C:\Users\admin\Desktop\POS\pos-system\POS System Project\obj\Debug\net6.0\POS System Project.AssemblyInfo.cs
+C:\Users\admin\Desktop\POS\pos-system\POS System Project\obj\Debug\net6.0\POS System Project.csproj.CoreCompileInputs.cache
+C:\Users\admin\Desktop\POS\pos-system\POS System Project\obj\Debug\net6.0\POS System Project.dll
+C:\Users\admin\Desktop\POS\pos-system\POS System Project\obj\Debug\net6.0\refint\POS System Project.dll
+C:\Users\admin\Desktop\POS\pos-system\POS System Project\obj\Debug\net6.0\POS System Project.pdb
+C:\Users\admin\Desktop\POS\pos-system\POS System Project\obj\Debug\net6.0\POS System Project.genruntimeconfig.cache
+C:\Users\admin\Desktop\POS\pos-system\POS System Project\obj\Debug\net6.0\ref\POS System Project.dll

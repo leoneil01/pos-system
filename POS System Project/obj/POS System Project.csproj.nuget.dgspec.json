@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\admin\\Desktop\\POS\\POS System Project\\POS System Project\\POS System Project.csproj": {}
+    "C:\\Users\\admin\\Desktop\\POS\\pos-system\\POS System Project\\POS System Project.csproj": {}
   },
   "projects": {
-    "C:\\Users\\admin\\Desktop\\POS\\POS System Project\\POS System Project\\POS System Project.csproj": {
+    "C:\\Users\\admin\\Desktop\\POS\\pos-system\\POS System Project\\POS System Project.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\admin\\Desktop\\POS\\POS System Project\\POS System Project\\POS System Project.csproj",
+        "projectUniqueName": "C:\\Users\\admin\\Desktop\\POS\\pos-system\\POS System Project\\POS System Project.csproj",
         "projectName": "POS System Project",
-        "projectPath": "C:\\Users\\admin\\Desktop\\POS\\POS System Project\\POS System Project\\POS System Project.csproj",
+        "projectPath": "C:\\Users\\admin\\Desktop\\POS\\pos-system\\POS System Project\\POS System Project.csproj",
         "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\admin\\Desktop\\POS\\POS System Project\\POS System Project\\obj\\",
+        "outputPath": "C:\\Users\\admin\\Desktop\\POS\\pos-system\\POS System Project\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
