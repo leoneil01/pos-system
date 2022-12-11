@@ -14,10 +14,13 @@ namespace POS_System_Project
         {
             SignInMessage message = new SignInMessage();
             Menu menu = new Menu();
+            MenuContent menuCont = new MenuContent();
 
             message.SignIn();
             menu.Menus();
-
+            menuCont.Menu1();
+            menu.Menus();
+            menuCont.Menu1();
         }
     }
 
@@ -64,8 +67,74 @@ namespace POS_System_Project
             Console.WriteLine("8. CHECKOUT");
             Console.WriteLine("9. LOGOUT");
             Console.WriteLine("---------------------");
-            Console.Write("Please select a menu: ");
-            string input = Console.ReadLine();
+        }
+    }
+
+    class MenuContent
+    {
+        private int productCode;
+        private string productName;
+        private double productPrice;
+        private int productQuantity;
+        public void Menu1()
+        {
+            bool codeRun1 = true;
+            while (codeRun1 == true)
+            {
+                try
+                {
+                    Console.Write("Please select a menu: ");
+                    int input = Convert.ToInt32(Console.ReadLine());
+
+                    if(input <= 9 && input > 0)
+                    {
+                        switch (input)
+                        {
+                            case 1:
+                                Console.Write("Please input the product code: ");
+                                productCode = Convert.ToInt32(Console.ReadLine());
+                                Console.Write("Please input the product name: ");
+                                productName = Console.ReadLine();
+                                Console.Write("Please input the product price: ");
+                                productPrice = Convert.ToDouble(Console.ReadLine());
+                                Console.Write("Please input the product quantity: ");
+                                productQuantity = Convert.ToInt32(Console.ReadLine());
+                                break;
+                            case 2:
+                                Console.WriteLine("This is case 2.");
+                                break;
+                            case 3:
+                                Console.WriteLine("This is case 3.");
+                                break;
+                            case 4:
+                                Console.WriteLine("This is case 4.");
+                                break;
+                            case 5:
+                                Console.WriteLine("This is case 5.");
+                                break;
+                            case 6:
+                                Console.WriteLine("This is case 6.");
+                                break;
+                            case 7:
+                                Console.WriteLine("This is case 7.");
+                                break;
+                            case 8:
+                                Console.WriteLine("This is case 8.");
+                                break;
+                            case 9:
+                                Console.WriteLine("You've log out.");
+                                break;
+                        }
+                        codeRun1 = false;
+                    }
+                    else
+                        Console.WriteLine("Not in range. Options available ranging 1 - 9 only.\nTry again.\n");
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Invalid! Use integer/number only.\nPlease try again.\n");
+                }
+            }
         }
     }
 }
