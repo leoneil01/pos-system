@@ -13,13 +13,9 @@ namespace POS_System_Project
         static void Main(string[] args)
         {
             SignInMessage message = new SignInMessage();
-            Menu menu = new Menu();
             MenuContent menuCont = new MenuContent();
 
             message.SignIn();
-            menu.Menus();
-            menuCont.Menu1();
-            menu.Menus();
             menuCont.Menu1();
         }
     }
@@ -70,12 +66,84 @@ namespace POS_System_Project
         }
     }
 
-    class MenuContent
+    class Product : Menu
     {
-        private int productCode;
-        private string productName;
-        private double productPrice;
-        private int productQuantity;
+        public string ProductCode { get; set; }
+        public string ProductName { get; set; }
+        public double ProductPrice { get; set; }
+        public int ProductQuantity { get; set; }
+        public DateTime DateCreated { get; set; }
+    }
+
+    class ProductRepository : Product
+    {
+        List<Product> products = new List<Product>();
+        public void AddProduct()
+        {
+            var product = new Product();
+            Console.Write("Please input the product code: ");
+            product.ProductCode = Console.ReadLine();
+            products.Add(product);
+            Console.Write("Please input the product name: ");
+            product.ProductName = Console.ReadLine();
+            products.Add(product);
+            Console.Write("Please input the product price: ");
+            product.ProductPrice = Convert.ToDouble(Console.ReadLine());
+            products.Add(product);
+            Console.Write("Please input the product quantity: ");
+            product.ProductQuantity = Convert.ToInt32(Console.ReadLine());
+            products.Add(product);
+            Console.WriteLine("Product has been successfully created.");
+            //Console.WriteLine("Product code is alredy exist.");
+        }
+        public void UpdateProduct()
+        {
+
+        }
+        public void DeleteProduct()
+        {
+
+        }
+        public void DisplayAllProduct()
+        {
+            foreach(var product in products)
+            {
+                Console.WriteLine("---LISTS OF PRODUCT---");
+                Console.WriteLine("----------------------------------------");
+                Console.WriteLine("----------------------------------------");
+                Console.WriteLine("Code: {0}", product.ProductCode);
+                Console.WriteLine("Name: {0}", product.ProductName);
+                Console.WriteLine("Price: {0}", product.ProductPrice);
+                Console.WriteLine("Quantity: {0}", product.ProductQuantity);
+                Console.WriteLine("Date Created: {0}", product.DateCreated);
+                Console.WriteLine("----------------------------------------");
+                Console.WriteLine("----------------------------------------");
+            }
+        }
+        public void AddItemToCart()
+        {
+
+        }
+        public void RemoveItemToCart()
+        {
+
+        }
+        public void DisplayAllItemInCart()
+        {
+
+        }
+        public void CheckOut()
+        {
+
+        }
+        public void LogOut()
+        {
+
+        }
+    }
+
+    class MenuContent : ProductRepository
+    {
         public void Menu1()
         {
             bool codeRun1 = true;
@@ -83,6 +151,7 @@ namespace POS_System_Project
             {
                 try
                 {
+                    Menus();
                     Console.Write("Please select a menu: ");
                     int input = Convert.ToInt32(Console.ReadLine());
 
@@ -91,24 +160,17 @@ namespace POS_System_Project
                         switch (input)
                         {
                             case 1:
-                                Console.Write("Please input the product code: ");
-                                productCode = Convert.ToInt32(Console.ReadLine());
-                                Console.Write("Please input the product name: ");
-                                productName = Console.ReadLine();
-                                Console.Write("Please input the product price: ");
-                                productPrice = Convert.ToDouble(Console.ReadLine());
-                                Console.Write("Please input the product quantity: ");
-                                productQuantity = Convert.ToInt32(Console.ReadLine());
-                                break;
+                                AddProduct();
+                                continue;
                             case 2:
                                 Console.WriteLine("This is case 2.");
-                                break;
+                                continue;
                             case 3:
                                 Console.WriteLine("This is case 3.");
-                                break;
+                                continue;
                             case 4:
-                                Console.WriteLine("This is case 4.");
-                                break;
+                                DisplayAllProduct();
+                                continue;
                             case 5:
                                 Console.WriteLine("This is case 5.");
                                 break;
@@ -128,11 +190,11 @@ namespace POS_System_Project
                         codeRun1 = false;
                     }
                     else
-                        Console.WriteLine("Not in range. Options available ranging 1 - 9 only.\nTry again.\n");
+                        Console.WriteLine("Not in range. Options available ranging 1 - 9 only.\nTry again.");
                 }
                 catch (FormatException)
                 {
-                    Console.WriteLine("Invalid! Use integer/number only.\nPlease try again.\n");
+                    Console.WriteLine("Invalid! Use integer/number only.\nPlease try again.");
                 }
             }
         }
