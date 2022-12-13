@@ -45,6 +45,19 @@ namespace POS_System_Project
                 Console.WriteLine("Invalid username/password. Please try again.\n");
             }
         }
+        public void Message2()
+        {
+            Console.WriteLine("Product Code does not exist.");
+        }
+        public void Message3()
+        {
+            Console.WriteLine("Product code is alredy exist.");
+        }
+        public void LogOut()
+        {
+            Console.Write("You've log out.\nPress any key to close this window . . .");
+            Console.ReadKey();
+        }
     }
 
     class Menu : SignInMessage
@@ -66,16 +79,16 @@ namespace POS_System_Project
         }
     }
 
-    class Product : Menu
+    class Product
     {
         public string ProductCode { get; set; }
         public string ProductName { get; set; }
         public double ProductPrice { get; set; }
         public int ProductQuantity { get; set; }
-        public DateTime DateCreated { get; set; }
+        public DateTime DateCreated { get { return DateTime.Now; } }
     }
 
-    class ProductRepository : Product
+    class ProductRepository : SignInMessage
     {
         List<Product> products = new List<Product>();
         public void AddProduct()
@@ -83,28 +96,52 @@ namespace POS_System_Project
             var product = new Product();
             Console.Write("Please input the product code: ");
             product.ProductCode = Console.ReadLine();
-            products.Add(product);
             Console.Write("Please input the product name: ");
             product.ProductName = Console.ReadLine();
-            products.Add(product);
             Console.Write("Please input the product price: ");
             product.ProductPrice = Convert.ToDouble(Console.ReadLine());
-            products.Add(product);
             Console.Write("Please input the product quantity: ");
             product.ProductQuantity = Convert.ToInt32(Console.ReadLine());
             products.Add(product);
             Console.WriteLine("Product has been successfully created.");
-            //Console.WriteLine("Product code is alredy exist.");
         }
         public void UpdateProduct()
         {
-
+            foreach(var product in products)
+            {
+                Console.Write("Please select the product that you want to update (Product Code): ");
+                if(product.ProductCode == Console.ReadLine())
+                {
+                    Console.Write("Please input the updated product name: ");
+                    product.ProductName = Console.ReadLine();
+                    Console.Write("Please input the updated product price: ");
+                    product.ProductPrice = Convert.ToDouble(Console.ReadLine());
+                    Console.Write("Plese input the updated product quantity: ");
+                    product.ProductQuantity = Convert.ToInt32(Console.ReadLine());
+                    Console.WriteLine("Product has been successfully updated.");
+                    break;
+                }
+                Message2();
+                break;
+            }
         }
         public void DeleteProduct()
         {
-
+            foreach(var product in products)
+            {
+                Console.Write("Please select the product that you want to delete (Product Code): ");
+                string input = Console.ReadLine();
+                if(product.ProductCode == input)
+                {
+                    products.Remove(product);
+                    Console.WriteLine("Product has been successfully deleted.");
+                    break;
+                }
+                Message2();
+                break;
+            }
         }
-        public void DisplayAllProduct()
+        public void DisplayAllProducts()
         {
             foreach(var product in products)
             {
@@ -113,37 +150,20 @@ namespace POS_System_Project
                 Console.WriteLine("----------------------------------------");
                 Console.WriteLine("Code: {0}", product.ProductCode);
                 Console.WriteLine("Name: {0}", product.ProductName);
-                Console.WriteLine("Price: {0}", product.ProductPrice);
+                Console.WriteLine("Price: Php {0:F2}", product.ProductPrice);
                 Console.WriteLine("Quantity: {0}", product.ProductQuantity);
                 Console.WriteLine("Date Created: {0}", product.DateCreated);
                 Console.WriteLine("----------------------------------------");
                 Console.WriteLine("----------------------------------------");
             }
         }
-        public void AddItemToCart()
-        {
-
-        }
-        public void RemoveItemToCart()
-        {
-
-        }
-        public void DisplayAllItemInCart()
-        {
-
-        }
-        public void CheckOut()
-        {
-
-        }
-        public void LogOut()
-        {
-
-        }
     }
 
-    class MenuContent : ProductRepository
+    class MenuContent : Menu
     {
+        ProductRepository productRepo = new ProductRepository();
+        CartRepository cartRepo = new CartRepository();
+
         public void Menu1()
         {
             bool codeRun1 = true;
@@ -160,31 +180,31 @@ namespace POS_System_Project
                         switch (input)
                         {
                             case 1:
-                                AddProduct();
+                                productRepo.AddProduct();
                                 continue;
                             case 2:
-                                Console.WriteLine("This is case 2.");
+                                productRepo.UpdateProduct();
                                 continue;
                             case 3:
-                                Console.WriteLine("This is case 3.");
+                                productRepo.DeleteProduct();
                                 continue;
                             case 4:
-                                DisplayAllProduct();
+                                productRepo.DisplayAllProducts();
                                 continue;
                             case 5:
-                                Console.WriteLine("This is case 5.");
-                                break;
+                                cartRepo.AddItemToCart();
+                                continue;
                             case 6:
-                                Console.WriteLine("This is case 6.");
-                                break;
+                                cartRepo.RemoveItemInCart();
+                                continue;
                             case 7:
-                                Console.WriteLine("This is case 7.");
-                                break;
+                                cartRepo.DisplayAllItemsInCart();
+                                continue;
                             case 8:
-                                Console.WriteLine("This is case 8.");
-                                break;
+                                cartRepo.CheckOut();
+                                continue;
                             case 9:
-                                Console.WriteLine("You've log out.");
+                                LogOut();
                                 break;
                         }
                         codeRun1 = false;
