@@ -15,7 +15,7 @@ namespace POS_System_Project
             SignInMessage message = new SignInMessage();
             MenuContent menuCont = new MenuContent();
 
-            message.SignIn();
+            //message.SignIn();
             menuCont.MainMenu();
         }
     }
@@ -43,6 +43,7 @@ namespace POS_System_Project
     {
         ProductRepository productRepo = new ProductRepository();
         CartRepository cartRepo = new CartRepository();
+        private int input { get; set; }
 
         public void MainMenu()
         {
@@ -53,7 +54,7 @@ namespace POS_System_Project
                 {
                     Menus();
                     Console.Write("Please select a menu: ");
-                    int input = Convert.ToInt32(Console.ReadLine());
+                    input = Convert.ToInt32(Console.ReadLine());
 
                     if(input <= 9 && input > 0)
                     {
