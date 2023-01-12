@@ -22,7 +22,52 @@ namespace POS_System_Project
         {
             products = new List<Product>();
         }
+        public Product GetList(string productCode)
+        {
+            foreach (Product product in products)
+            {
+                if (product.ProductCode == productCode)
+                    return product;
+            }
+            return null;
+        }
         public string input { get; set; }
+
+        // another way of checking if the product code is already existed
+        /*
+        private bool CheckIfProductExist(string code)
+        {
+            foreach (Product product in products)
+            {
+                if (product.ProductCode == code)
+                    return true;
+            }
+            return false;
+        }
+        public void AddProduct()
+        {
+            Product product = new Product();
+            Console.Write("Please input the product code: ");
+            product.ProductCode = Console.ReadLine();
+            if (CheckIfProductExist(product.ProductCode))
+            {
+                Console.WriteLine("Product code is alredy exist.");
+            }
+            else
+            {
+                Console.Write("Please input the product name: ");
+                product.ProductName = Console.ReadLine();
+                Console.Write("Please input the product price: ");
+                product.ProductPrice = Convert.ToDouble(Console.ReadLine());
+                Console.Write("Please input the product quantity: ");
+                product.ProductQuantity = Convert.ToInt32(Console.ReadLine());
+                product.DateCreated = DateTime.Now;
+                products.Add(product);
+                Console.WriteLine("Product has been successfully created.");
+            }
+        } 
+        */
+
         public void AddProduct()
         {
             if (products.Count == 0) //first check the count if empty or not
@@ -34,7 +79,7 @@ namespace POS_System_Project
         }
         public void Product1() //normal iteration
         {
-            var product = new Product();
+            Product product = new Product();
             Console.Write("Please input the product code: ");
             product.ProductCode = Console.ReadLine();
             Console.Write("Please input the product name: ");
@@ -51,7 +96,7 @@ namespace POS_System_Project
         {
             Console.Write("Please input the product code: ");
             input = Console.ReadLine();
-            foreach (var product in products)
+            foreach (Product product in products)
             {
                 if (product.ProductCode == input)
                 {
@@ -63,8 +108,7 @@ namespace POS_System_Project
         }
         public void Product3()
         {
-            Product product1 = new Product();
-            var product = product1;
+            Product product = new Product();
             product.ProductCode = input; //takes the input above (Product2) and asign it to product code
             Console.Write("Please input the product name: ");
             product.ProductName = Console.ReadLine();
@@ -80,7 +124,7 @@ namespace POS_System_Project
         {
             Console.Write("Please select the product that you want to update (Product Code): ");
             input = Console.ReadLine();
-            foreach (var product in products)
+            foreach (Product product in products)
             {
                 if (product.ProductCode == input)
                 {
@@ -100,7 +144,7 @@ namespace POS_System_Project
         {
             Console.Write("Please select the product that you want to delete (Product Code): ");
             input = Console.ReadLine();
-            foreach (var product in products)
+            foreach (Product product in products)
             {
                 if (product.ProductCode == input)
                 {
@@ -113,15 +157,15 @@ namespace POS_System_Project
         }
         public void DisplayAllProducts()
         {
-            foreach (var product in products)
+            foreach (Product product in products)
             {
                 Console.WriteLine("---LISTS OF PRODUCT---");
                 Console.WriteLine("----------------------------------------");
                 Console.WriteLine("----------------------------------------");
                 Console.WriteLine("Code: {0}", product.ProductCode);
                 Console.WriteLine("Name: {0}", product.ProductName);
-                Console.WriteLine("Price: Php {0:F2}", product.ProductPrice);
-                Console.WriteLine("Quantity: {0}", product.ProductQuantity);
+                Console.WriteLine("Price: Php {0:n2}", product.ProductPrice);
+                Console.WriteLine("Quantity: {0:n0}", product.ProductQuantity);
                 Console.WriteLine("Date Created: {0}", product.DateCreated);
                 Console.WriteLine("----------------------------------------");
                 Console.WriteLine("----------------------------------------");

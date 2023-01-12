@@ -73,7 +73,7 @@ namespace POS_System_Project
                                 productRepo.DisplayAllProducts();
                                 continue;
                             case 5:
-                                cartRepo.AddItemToCart();
+                                AddItemToCart();
                                 continue;
                             case 6:
                                 cartRepo.RemoveItemInCart();
@@ -98,6 +98,18 @@ namespace POS_System_Project
                     Console.WriteLine("Invalid! Use integer/number only.\nPlease try again.");
                 }
             }
+        }
+        public void AddItemToCart()
+        {
+            Console.Write("Please select a product code: ");
+            string input = Console.ReadLine();
+            Product product = productRepo.GetList(input);
+            if (product == null)
+            {
+                Console.WriteLine("Product code does not exist in the product list.");
+                return;
+            }
+            cartRepo.ItemToCart(product);
         }
     }
 }

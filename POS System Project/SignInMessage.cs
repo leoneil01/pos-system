@@ -23,6 +23,10 @@ namespace POS_System_Project
         {
             Console.WriteLine("Product code is alredy exist.");
         }
+        public void Message4()
+        {
+            Console.WriteLine("Product has been successfully added to cart.");
+        }
         public void SignIn()
         {
             Message1();
