@@ -15,7 +15,7 @@ namespace POS_System_Project
             SignInMessage message = new SignInMessage();
             MenuContent menuCont = new MenuContent();
 
-            //message.SignIn();
+            message.SignIn();
             menuCont.MainMenu();
         }
     }
